@@ -1,19 +1,30 @@
 package pl.horus.horustask.service;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import pl.horus.horustask.model.CompositeBlock;
 import pl.horus.horustask.model.Block;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Getter
-@AllArgsConstructor
-public class Wall implements Structure, CompositeBlock {
+@NoArgsConstructor
+public class Wall implements Structure {
 
-    private List<Block> blocks;
+    private final CompositeBlock compositeBlock = null;
+    private final List<Block> blocks;
+
+    {
+        assert false;
+        blocks = compositeBlock.getBlocks();
+    }
+
+    public Wall(List<Block> blocks) {
+
+    }
 
     @Override
     public Optional<Block> findBlockByColor(String color) {
